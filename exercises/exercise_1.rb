@@ -15,7 +15,13 @@ puts "----------"
 Store.create(name: "burnaby_store", annual_revenue: 300000, womens_apparel: true, mens_apparel: true)
 Store.create(name: "richmond_store", annual_revenue: 1260000, womens_apparel: true, mens_apparel: false)
 Store.create(name: "gastown_store", annual_revenue: 190000, womens_apparel: false, mens_apparel: true)
-
 puts Store.count
+
+## bad example 
+# Store.create(name: "!!!!!", annual_revenue: 0, womens_apparel: false, mens_apparel: true)
+w = Store.create(name: "good", annual_revenue: 1, womens_apparel: false, mens_apparel: false)
+puts w.errors.full_messages
+
+
 
 
