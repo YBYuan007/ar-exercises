@@ -12,10 +12,9 @@ puts "----------"
 # Output (puts) the number of the stores using ActiveRecord's count method, to ensure that there are three stores in the database.
 
 
-Burnaby = Store.create(name: "burnaby_store", annual_revenue: 300000, womens_apparel: true, mens_apparel: true)
-# do i need to assign a varaible name - Burnaby ? 
-Richmond = Store.create(name: "richmond_store", annual_revenue: 1260000, womens_apparel: true, mens_apparel: false)
-Gastown = Store.create(name: "gastown_store", annual_revenue: 190000, womens_apparel: false, mens_apparel: true)
+Store.create(name: "burnaby_store", annual_revenue: 300000, womens_apparel: true, mens_apparel: true)
+Store.create(name: "richmond_store", annual_revenue: 1260000, womens_apparel: true, mens_apparel: false)
+Store.create(name: "gastown_store", annual_revenue: 190000, womens_apparel: false, mens_apparel: true)
 
 puts Store.count
 

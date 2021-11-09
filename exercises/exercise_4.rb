@@ -18,13 +18,21 @@ puts "----------"
 # Loop through each of these stores and output their name and annual revenue on each line.
 # Do another fetch but this time load stores that carry women's apparel and are generating less than $1M in annual revenue.
 
-surrey = Store.create(name: "surrey_store", annual_revenue: 224000, womens_apparel: true, mens_apparel: false)
-whistler = Store.create(name: "whistler_store", annual_revenue: 1900000, womens_apparel: false, mens_apparel: true)
-yaletown = Store.create(name: "yaletown_store", annual_revenue: 430000, womens_apparel: true, mens_apparel: true)
+Store.create(name: "surrey_store", annual_revenue: 224000, womens_apparel: true, mens_apparel: false)
+Store.create(name: "whistler_store", annual_revenue: 1900000, womens_apparel: false, mens_apparel: true)
+Store.create(name: "yaletown_store", annual_revenue: 430000, womens_apparel: true, mens_apparel: true)
 
-@mens_stores = Store.select(:name, :annual_revenue).where(mens_apparel: true)
+@mens_stores = Store.select(:name, :annual_revenue).where(mens_apparel: true) 
 
 @mens_stores.each do |n| 
   puts n.name, n.annual_revenue
 end 
+
+@womens_stores = Store.where(["annual_revenue < ? and womens_apparel = ? ", "1000000", "true"])
+# @womens_stores = Store.where("annual_revenue < 1000000 and womens_apparel = true and name = 'surrey_store'   ")
+
+@womens_stores.each do |n| 
+  puts n.name, n.annual_revenue
+end 
+
 
